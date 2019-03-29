@@ -10,15 +10,15 @@ export default class Filters extends Component {
           id="print-type"
           onChange={(e) => this.props.handlePrintTypeFilterChange(e.target.value)}>
             <option value="all">All</option>
-            <option value="books">Books</option>
-            <option value="magazines">Magazines</option>
+            <option value="BOOK">Books</option>
+            <option value="MAGAZINE">Magazines</option>
         </select>
 
         <label htmlFor="book-type">Book Type: </label>
         <select 
           id="book-type"
           onChange={(e) => this.props.handleBookTypeFilterChange(e.target.value)}>
-            <option value="">No Filter</option>
+            <option value="null">No Filter</option>
             <option value="partial">Partial</option>
             <option value="full">Full</option>
             <option value="free-ebooks">Free Ebooks</option>

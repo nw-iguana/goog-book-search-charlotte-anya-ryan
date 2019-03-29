@@ -18,9 +18,9 @@ class App extends Component {
   handleFormSubmit = (e,searchTerm) => {
     e.preventDefault();
 
-    let printFilterValue = this.state.printFilter ? `&printType=${this.state.printFilter}` : '';
-    let bookFilterValue = this.state.bookFilter ? `&filter=${this.state.bookFilter}` : '';
-    let apiUrl = `https://www.googleapis.com/books/v1/volumes?&q=intitle:${searchTerm}` + printFilterValue + bookFilterValue;
+    // let printFilterValue = this.state.printFilter ? `&printType=${this.state.printFilter}` : '';
+    // let bookFilterValue = this.state.bookFilter ? `&filter=${this.state.bookFilter}` : '';
+    let apiUrl = `https://www.googleapis.com/books/v1/volumes?&q=intitle:${searchTerm}`;
 
     fetch(apiUrl)
     .then(response => response.json())
@@ -44,7 +44,10 @@ class App extends Component {
     if (this.state.loading) {
       listOutput = (<div>Loading...</div>)
     } else {
-      listOutput = <BookList results={this.state.results} />
+      listOutput = <BookList
+                    results={this.state.results}
+                    printFilter={this.state.printFilter}
+                    bookFilter={this.state.bookFilter} />
     }
     
     return (
